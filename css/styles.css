@@ -56,9 +56,6 @@ ul li {
   padding-left: 0.5rem;
 }
 
-a {
-  color: #8a4680;
-}
 a:hover {
   text-decoration: none;
 }
@@ -497,6 +494,7 @@ ul.icons {
   cursor: default;
   list-style: none;
   padding-left: 0;
+  color: #fff;
 }
 ul.icons li {
   display: inline-block;
