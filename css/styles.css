@@ -510,8 +510,6 @@ ul.icons li .icon:before {
 /* FORMATTING CLASSES & OVERRIDES
 -------------------------------------------------- */
 .img-fluid {
-  min-width: 150px;
-  min-height: 150px;
   max-height: auto;
   max-width: auto;
 }
