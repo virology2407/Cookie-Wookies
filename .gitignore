@@ -1,0 +1,11 @@
+_pgbackup/
+*.zip
+pinegrow.json
+images-backups
+css backups
+css/scss
+Change log.txt
+Entregas
+*/.DS_Store
+.DS_Store
+test.html
