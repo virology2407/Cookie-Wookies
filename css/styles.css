@@ -489,6 +489,9 @@ footer .copyright {
 .icon > .label {
   display: none;
 }
+.icon a {
+  color: #fff;
+}
 
 ul.icons {
   cursor: default;
