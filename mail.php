@@ -1,30 +1,51 @@
 <?php
-// build the request url
-$verify_url = 'https://www.google.com/recaptcha/api/siteverify';
-$args = array('secret' => '6Lf81dgZAAAAALu40KlfN_qUy2BwpwFlhK_qnEQO',
-              'response' => $_POST['g-recaptcha-response'],
-              'remoteip' => $_SERVER['REMOTE_ADDR']);
-$request_url = $verify_url.'?'.http_build_query($args);
- 
-// a JSON object is returned
-$response = file_get_contents($request_url);
- 
-// decode the information
-$json = json_decode($response, true); // true decodes it to an array instead of a PHP object
- 
-// handle the response
-if($recaptcha['success'] == 1) {
-	$name = $_POST['Nombre'];
-    $email = $_POST['Email'];
-    $type = $_POST['motivo'];
-    $message = $_POST['mensaje'];
-    $formcontent=" From: $name \n Type: $type \n Message: $message";
-    $recipient = "hola@cookiewookies.me";
-    $subject = "Contact Form";
-    $mailheader = "From: $email \r\n";
-    mail($recipient, $subject, $formcontent, $mailheader) or die("Error!");
-    echo "Thank You!" . " -" . "<a href='gracias.html' style='text-decoration:none;color:#ff0099;'> Return Home</a>";
-} else {
-	// run code on unsuccessful reCAPTCHA
-}
+    if(isset($_POST["send"])) {
+        $name = $_POST["Nombre"];
+        $email = $_POST["Email"];
+        $type = $_POST["motivo"];
+        $message = $_POST["mensaje"];
+        
+        // Form validation
+        if(!empty($name) && !empty($email) && !empty($type) && !empty($message)){
+
+            // reCAPTCHA validation
+            if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
+
+                // Google secret API
+                $secretAPIkey = '6Lf81dgZAAAAALu40KlfN_qUy2BwpwFlhK_qnEQO';
+
+                // reCAPTCHA response verification
+                $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secretAPIkey.'&response='.$_POST['g-recaptcha-response']);
+
+                // Decode JSON data
+                $response = json_decode($verifyResponse);
+                    if($response->success){
+
+                        $toMail = "hola@cookiewookies.me";
+                        $header = "From: " . $name . "<". $email .">\r\n";
+                        mail($toMail, $type, $message, $header);
+
+                        $response = array(
+                            "status" => "alert-success",
+                            "message" => "Tu mensaje fue envíado."
+                        );
+                    } else {
+                        $response = array(
+                            "status" => "alert-danger",
+                            "message" => "Sos un robot? Probá de nuevo."
+                        );
+                    }       
+            } else{ 
+                $response = array(
+                    "status" => "alert-danger",
+                    "message" => "Por favor validá el reCaptcha."
+                );
+            } 
+        }  else{ 
+            $response = array(
+                "status" => "alert-danger",
+                "message" => "Todos los campos son requeridos."
+            );
+        }
+    }  
 ?>
