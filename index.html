@@ -107,13 +107,69 @@
             </div>
         </div>
     </section>
-    <section class="wrapper parallex">
+    <section class="wrapper parallex" onmouseover="autoClick()">
         <div class="inner">
             <header class="align-center">
-                <h2>Hacé tu pedido acá</h2>
+                <h2>Hacé tu pedido en nuestra tienda online!</h2>
                 <a href="/tienda" class="btn btn-primary">Pedidos</a>
             </header>
         </div>
+        <button type="button" class="btn btn-primary invisible" data-toggle="modal" data-target="#modalDiscount"
+            id="click">Launch
+            modal</button>
+
+        <!--Modal: modalDiscount-->
+        <div class="modal fade right" id="modalDiscount" tabindex="-1" role="dialog"
+            aria-labelledby="modal de descuento" aria-hidden="true" data-backdrop="true">
+            <div class="modal-dialog modal-side modal-bottom-right modal-notify modal-danger" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                        <p class="heading text-dark">Descuento en tu primer pedido!
+                            <strong>15% off!</strong>
+                        </p>
+                    </div>
+
+                    <!--Body-->
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-3">
+                                <p></p>
+                                <p class="text-center text-dark">
+                                    <i class="fas fa-gift fa-4x"></i>
+                                </p>
+                            </div>
+
+                            <div class="col-9">
+                                <p class="lead text-dark">Nos encantaría que pruebes nuestros deliciosos productos, así
+                                    que te regalamos un código de descuento!</p>
+                                <p>
+                                    <strong class="text-dark">Usá este código en el checkout!
+                                        <u>Válido para tu primer pedido!</u>.</strong>
+                                </p>
+                                <h2>
+                                    <span class="text-muted text-dark">v52gs1</span>
+                                </h2>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Footer-->
+                    <div class="modal-footer flex-center">
+                        <a href="/tienda" class="btn btn-danger">Usalo ya!
+                            <i class="far fa-gem ml-1 white-text"></i>
+                        </a>
+                        <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">No,
+                            gracias</a>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!--Modal: modalDiscount-->
     </section>
     <a id="about"></a>
     <hr class="featurette-divider invisible">
@@ -122,9 +178,13 @@
             <div class="align-self-center col-md-7">
                 <h2 class="featurette-heading">Somos Cookie Wookies. <span class="text-muted">Nuestra cocina te va a
                         encantar.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                    euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
-                    tellus ac cursus commodo.</p>
+                <p class="lead">En Cookie Wookies creemos que los celíacos e intolerantes al gluten también tienen
+                    derecho a comer
+                    cosas ricas y con precios accesibles. Los sobreprecios que los celíacos tenemos que pagar para
+                    acceder a productos
+                    de cuestionable calidad nos inspira a dar lo mejor de nosotras para que tus meriendas, fiestas de
+                    cumpleaños, y gustos del día a día
+                    sean memorables. Te invitamos a conocernos!</p>
             </div>
             <div class="col-md-5">
                 <img class="featurette-image img-fluid mx-auto" src="images/section1.jpg" data-holder-rendered="true"
@@ -137,8 +197,8 @@
     <article class="container">
         <div class="row">
             <div class="align-self-center col-md-7 order-md-2">
-                <h2 class="featurette-heading">Somos Cookie Wookies. <span class="text-muted">Nuestra cocina te va a
-                        encantar.</span></h2>
+                <h2 class="featurette-heading">Tentaciones dulces para todos. <span class="text-muted">Probanos.</span>
+                </h2>
                 <table summary="Lista de productos" class="table table-hover">
                     <thead>
                         <tr>
@@ -201,9 +261,92 @@
             <div class="align-self-center col-md-7">
                 <h2 class="featurette-heading">¿Tenés preguntas? <span class="text-muted">Tenemos respuestas.</span>
                 </h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                    euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
-                    tellus ac cursus commodo.</p>
+                <p class="lead">Nos llegan muchísimas preguntas sobre nuestros productos. Aquí recopilamos las más
+                    comunes</p>
+                <div class="accordion" id="preguntas-frecuentes">
+                    <div class="card">
+                        <div class="card-header p-2" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse"
+                                    data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Necesito pedir con anticipación?
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                            data-parent="#preguntas-frecuentes">
+                            <div class="card-body">
+                                Queremos asegurarte la mejor calidad, por lo que te pedimos 48h de
+                                anticipación para poder entregarte los productos súper frescos.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header p-2" id="headingTwo">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Todo el menú es sin gluten?
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#preguntas-frecuentes">
+                            <div class="card-body">
+                                Si! Todo nuestro menú es sin gluten. Si tenés otras intolerancias, consultanos. Seguro
+                                que logramos adaptar nuestros productos a tus necesidades.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header p-2" id="headingThree">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                    data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Hacen envíos?
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                            data-parent="#preguntas-frecuentes">
+                            <div class="card-body">
+                                Si. Consultá nuestro mapa de envíos <a href="envios.html">aquí</a> para información
+                                sobre zonas y costos
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header p-2" id="headingFour">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                    data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Tienen tienda física?
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                            data-parent="#preguntas-frecuentes">
+                            <div class="card-body">
+                                Para asegurarnos que nuestros precios se mantengan accesibles a todo el público,
+                                contamos solamente con tienda online de momento. </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header p-2" id="headingFive">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                    data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    Hacen catering o pedidos grandes?
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
+                            data-parent="#preguntas-frecuentes">
+                            <div class="card-body">
+                                Si. Contactanos para entender tus necesidades y acordar tiempos de entrega. . </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-5">
                 <img class="featurette-image img-fluid mx-auto" src="images/section3.jpg" data-holder-rendered="true"
@@ -322,6 +465,15 @@
     <script src="js/main.js"></script>
     <script src="js/smooth-scroll.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+        var isClicked = false;
+        function autoClick() {
+            if (isClicked === false) {
+                document.getElementById("click").click();
+            }
+            isClicked = true;
+        }
+    </script>
 </body>
 
 </html>
