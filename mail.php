@@ -1,7 +1,7 @@
 <?php
 $name = $_POST['Nombre'];
 $email = $_POST['Email'];
-$type = $_POST['Motivo de Contacto'];
+$type = $_POST['motivo'];
 $message = $_POST['mensaje'];
 $formcontent=" From: $name \n Type: $type \n Message: $message";
 $recipient = "hola@cookiewookies.me";
