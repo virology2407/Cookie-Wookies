@@ -1,5 +1,5 @@
 <?php
-    if(isset($_POST["send"])) {
+    if(isset($_POST["submit"])) {
         $name = $_POST["Nombre"];
         $email = $_POST["Email"];
         $type = $_POST["motivo"];
