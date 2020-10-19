@@ -108,10 +108,15 @@
                 <a href="/tienda" class="btn btn-primary">Pedidos</a>
             </header>
         </div>
-        <button type="button" class="btn btn-primary invisible" data-toggle="modal" data-target="#modalDiscount"
+        <button type="button" class="btn btn-primary invisible" data-toggle="modal" data-target="#modal-descuento"
             id="click">Launch
-            modal</button>
-        <div class="modal fade right" id="modalDiscount" tabindex="-1" role="dialog"
+            modal
+        </button> 
+        <button type="button" class="btn btn-primary invisible" data-toggle="modal" data-target="#modal-descuento"
+            id="tap">Launch
+            modal
+        </button>
+        <div class="modal fade right" id="modal-descuento" tabindex="-1" role="dialog"
             aria-labelledby="modal de descuento" aria-hidden="true" data-backdrop="true">
             <div class="modal-dialog modal-side modal-bottom-right modal-notify modal-danger" role="document">
                 <div class="modal-content">
@@ -434,7 +439,6 @@
                 document.getElementById("click").click();
                 isClicked = true;
             }
-            
             if (isClicked === false && isMobile) {
                 document.getElementById("tap").click();
                 isClicked = true;
