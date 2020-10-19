@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 
-<body id="tap" onmouseover="autoClickMobile()">
+<body>
     <a id="top"></a>
     <nav class="navbar navbar-expand-md fixed-top navbar-dark">
         <a class="navbar-brand" href="#">Cookie Wookies</a>
@@ -112,12 +112,8 @@
             id="click">Launch
             modal
         </button> 
-        <button type="button" class="btn btn-primary invisible" data-toggle="modal" data-target="#modal-descuento"
-            id="tap">Launch
-            modal
-        </button>
         <div class="modal fade right" id="modal-descuento" tabindex="-1" role="dialog"
-            aria-labelledby="modal de descuento" aria-hidden="true" data-backdrop="true">
+            aria-labelledby="modal de descuento" aria-hidden="true" data-backdrop="true" displayed="false">
             <div class="modal-dialog modal-side modal-bottom-right modal-notify modal-danger" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -418,6 +414,15 @@
                     <a href="mailto:hola@cookiewookies.me" class="fa-envelope-open icon"><span
                             class="label">Email</span></a>
                 </li>
+                <li>
+                    <span class="test"></span>
+                </li>
+                <li>
+                    <span class="test2"></span>
+                </li>
+                <li>
+                    <span class="test3"></span>
+                </li>
             </ul>
         </div>
         <div class="copyright">
@@ -431,16 +436,26 @@
     <script src="js/main.js"></script>
     <script src="js/smooth-scroll.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script>
+    <!--<script>
         var isClicked = false;
+        window.onscroll = function() {scrollTrigger()};
+        function scrollTrigger(){
+        if ($(document).scrollTop() > 900 && $("#modal-descuento").attr("displayed") === "false" && isClicked == false) {
+        $('#modal-descuento').modal('show');
+        $("#modal-descuento").attr("displayed", "true");
+        console.log("2nd if");
+    }
+   }
+    </script>-->
+   <script>
+       var isClicked = false;
         function autoClick() {
-            if (isClicked === false && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                document.getElementById("tap").click();
-                isClicked = true;
-            }
-            if (isClicked === false) {
+            if (isClicked == false && $("#modal-descuento").attr("displayed") === "false") {
                 document.getElementById("click").click();
+                $('#modal-descuento').modal('show');
+                $("#modal-descuento").attr("displayed", "true");
                 isClicked = true;
+                console.log("1st if")
             }
         }
     </script>
