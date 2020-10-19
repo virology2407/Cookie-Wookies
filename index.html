@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 
-<body id="tap" onmouseover="autoClick()">
+<body id="tap" onmouseover="autoClickMobile()">
     <a id="top"></a>
     <nav class="navbar navbar-expand-md fixed-top navbar-dark">
         <a class="navbar-brand" href="#">Cookie Wookies</a>
@@ -433,14 +433,13 @@
     <script src="js/bootstrap.min.js"></script>
     <script>
         var isClicked = false;
-        var isMobile = window.matchMedia ("only screen and (max-width:760px)");
         function autoClick() {
-            if (isClicked === false) {
-                document.getElementById("click").click();
+            if (isClicked === false && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                document.getElementById("tap").click();
                 isClicked = true;
             }
-            if (isMobile.matches) {
-                document.getElementById("tap").click();
+            if (isClicked === false) {
+                document.getElementById("click").click();
                 isClicked = true;
             }
         }
