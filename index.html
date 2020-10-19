@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 
-<body>
+<body id="tap">
     <a id="top"></a>
     <nav class="navbar navbar-expand-md fixed-top navbar-dark">
         <a class="navbar-brand" href="#">Cookie Wookies</a>
@@ -429,8 +429,13 @@
     <script>
         var isClicked = false;
         function autoClick() {
+            let isMobile = window.matchMedia ("only screen and (max-width:760px)").matches;
             if (isClicked === false) {
                 document.getElementById("click").click();
+            }
+            isClicked = true;
+            if (isMobile) {
+                documet.getElementById("tap").click();
             }
             isClicked = true;
         }
