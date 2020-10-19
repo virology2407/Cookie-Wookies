@@ -435,11 +435,11 @@
         var isClicked = false;
         function autoClick() {
             let isMobile = window.matchMedia ("only screen and (max-width:760px)").matches;
-            if (isClicked === false && isMobile === false) {
+            if (isClicked === false) {
                 document.getElementById("click").click();
                 isClicked = true;
             }
-            if (isClicked === false && isMobile) {
+            if (isMobile) {
                 document.getElementById("tap").click();
                 isClicked = true;
             }
